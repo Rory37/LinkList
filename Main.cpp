@@ -4,7 +4,8 @@
 //LinkedList Part 1
 //By Aidan Derocher
 //12/11/17
-//A test program to prove that various nodes are linked together and can be added and printed through recursion
+//A test program to prove that various nodes are linked together in a linked list and can be added and printed through
+//recursion. Can also destroy nodes
 
 void newnode(Student*, Node*&); //A student to add and the first node
 void print(Node*, Node*); //starts with both being the same
@@ -28,6 +29,17 @@ int main() {
   cin.getline(test2,80); //puts input into name pointer
   teststu2 -> setName(test2);//sets the students name
   print(curr, curr); //runs print with curr for both
+  Student* teststu3 = new Student(); //Another test student
+  newnode(teststu3, curr); //Makes another node with the new student
+  char* test3 = new char[80];//name for new student
+  cout << "Input Name of student" << endl;
+  cin.getline(test3,80); //puts input into name pointer
+  teststu3 -> setName(test3);//sets the students name
+  print(curr, curr); //runs print with curr for both
+  Node* reconnect = curr -> getNext() -> getNext();
+  curr -> getNext() -> ~Node(); //Destroys second node
+  curr -> setNext(reconnect); //will connect first to third
+  print (curr,curr);//prints to prove node was destroyed
 }
 
 
@@ -51,7 +63,7 @@ void print(Node* n, Node* c) {
   }
   if(n != NULL) {//if the current node is not null
     cout << n -> getStudent() -> getName() << ' '; //print out name in it's student
+    cout << endl;
     print(n -> getNext(), c); //moves to next node in the line and runs print with that
   }
-  cout << endl;
 }

@@ -1,4 +1,4 @@
-#include "node.h"
+#include "Node.h"
 
 Node :: Node(Student* newStudent) {
   next = NULL;
@@ -6,7 +6,7 @@ Node :: Node(Student* newStudent) {
 }
 
 Node :: ~Node() {
-  delete &student;
+  delete student;
   next = NULL;
 }
 

@@ -1,8 +1,12 @@
-#ifndef GUARD
-#define GUARD
 class Student {
 
+ public:
+  void setName(char*);
+  char* getName();
+
+ private:
+  char* name;
+  
 };
 
 
-#endif
